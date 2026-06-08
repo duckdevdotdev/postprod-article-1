@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн-консультант по туру</title>
+  <style>
+    :root {
+      font-family: Inter, system-ui, sans-serif;
+      color: #172033;
+      background: #eef3f8;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 24px; }
+    main {
+      width: min(100%, 520px);
+      margin: 0 auto;
+      padding: 24px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(38, 55, 77, 0.12);
+    }
+    h1 { margin: 0 0 6px; font-size: 24px; }
+    .subtitle { margin: 0 0 18px; color: #667085; }
+    #chat {
+      height: 380px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid #d8e0ea;
+      border-radius: 12px;
+      background: #f8fafc;
+    }
+    .msg {
+      max-width: 88%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      white-space: pre-wrap;
+      line-height: 1.4;
+    }
+    .user { align-self: flex-end; background: #dbeafe; }
+    .bot { align-self: flex-start; background: white; border: 1px solid #e2e8f0; }
+    #call-btn {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      border: 0;
+      border-radius: 10px;
+      color: white;
+      background: #16803c;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    #call-status { min-height: 24px; padding: 8px 2px; color: #475467; }
+    #input-area { display: flex; gap: 8px; }
+    input, #send-btn {
+      padding: 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font: inherit;
+    }
+    input { min-width: 0; flex: 1; }
+    #send-btn { color: white; background: #2457d6; border-color: #2457d6; cursor: pointer; }
+    button:disabled, input:disabled { opacity: 0.6; cursor: wait; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Онлайн-консультант</h1>
+    <p class="subtitle">Турция, Rixos Premium</p>
+    <div id="chat" aria-live="polite"></div>
+    <button id="call-btn" type="button">Связаться с менеджером</button>
+    <div id="call-status" aria-live="polite"></div>
+    <div id="input-area">
+      <input id="user-msg" type="text" maxlength="2000" placeholder="Ваш вопрос по туру..." autocomplete="off">
+      <button id="send-btn" type="button">Отправить</button>
+    </div>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
+
